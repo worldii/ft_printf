@@ -6,7 +6,7 @@
 /*   By: jonghapa <bbc2788@naver.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 17:37:01 by jonghapa          #+#    #+#             */
-/*   Updated: 2022/01/07 01:51:17 by jonghapa         ###   ########.fr       */
+/*   Updated: 2022/03/04 17:34:00 by jonghapa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ int	check_type(const char c, va_list ap)
 	else if (c == 'u')
 		return (ft_printfunbr(va_arg(ap, unsigned int)));
 	else if (c == 'x' || c == 'X')
-		return (ft_printfhex(va_arg(ap, unsigned int)));
+		return (ft_printfhex(va_arg(ap, unsigned int), c));
 	else if (c == 'p')
 		return (ft_printfptr(va_arg(ap, unsigned long long)));
+	else if (c == '%')
+		return ft_printfchar('%');
 }
 
 int	ft_printf(const char *format, ...)
@@ -45,14 +47,14 @@ int	ft_printf(const char *format, ...)
 	i = -1;
 	while (format[++i])
 	{
-		if (format[i] == "%")
+		if (format[i] == '%')
 		{
 			len += check_type(format[i + 1], ap);
 			i++;
 		}
 		else
 		{
-			len += ft_printchar(format[i]);
+			len += ft_printfchar(format[i]);
 		}
 	}
 	va_end(ap);

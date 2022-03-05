@@ -2,7 +2,6 @@
 #include "ft_printf.h"
 int main(void)
 {
-	int ret = printf("%d %d", 2, 3);
-	printf("%d", ret);
-
+	int ret = ft_printf("%s %x", "sdasds", 10);
+	ft_printf("%d", ret);
 }
