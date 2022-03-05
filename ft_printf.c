@@ -6,7 +6,7 @@
 /*   By: jonghapa <bbc2788@naver.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 17:37:01 by jonghapa          #+#    #+#             */
-/*   Updated: 2022/03/04 17:34:00 by jonghapa         ###   ########.fr       */
+/*   Updated: 2022/03/05 17:28:38 by jonghapa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,16 @@ int	check_type(const char c, va_list ap)
 	else if (c == 's')
 		return (ft_printfstr(va_arg(ap, char *)));
 	else if (c == 'd' || c == 'i')
-		return (ft_printfnbr(va_arg(ap, int)));
+		return (ft_printfhex(va_arg(ap, int),c));
 	else if (c == 'u')
-		return (ft_printfunbr(va_arg(ap, unsigned int)));
+		return (ft_printfhex(va_arg(ap, unsigned int),c));
 	else if (c == 'x' || c == 'X')
 		return (ft_printfhex(va_arg(ap, unsigned int), c));
 	else if (c == 'p')
 		return (ft_printfptr(va_arg(ap, unsigned long long)));
 	else if (c == '%')
-		return ft_printfchar('%');
+		return (ft_printfchar('%'));
+	return (0);
 }
 
 int	ft_printf(const char *format, ...)
