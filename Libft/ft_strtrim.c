@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jonghapa <bbc2788@naver.com>               +#+  +:+       +#+        */
+/*   By: jonghapark <jonghapark@student.42seoul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 00:20:59 by jonghapa          #+#    #+#             */
-/*   Updated: 2021/12/03 16:51:59 by jonghapa         ###   ########.fr       */
+/*   Updated: 2022/03/20 00:17:50 by jonghapark       ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_ischarset(char s, char const *set)
+static int ft_ischarset(char s, char const *set)
 {
-	int	sidx;
+	int sidx;
 
 	sidx = 0;
 	while (set[sidx])
@@ -23,12 +23,12 @@ static int	ft_ischarset(char s, char const *set)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char *ft_strtrim(char const *s1, char const *set)
 {
-	int		s1len;
-	char	*trimmed;
-	int		tidx;
-	int		sidx;
+	int s1len;
+	char *trimmed;
+	int tidx;
+	int sidx;
 
 	tidx = 0;
 	sidx = 0;
@@ -41,7 +41,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		sidx++;
 	if (sidx >= s1len)
 		return (ft_strdup(""));
-	trimmed = (char *) malloc (sizeof(char) * (s1len - sidx + 1));
+	trimmed = (char *)malloc(sizeof(char) * (s1len - sidx + 1));
 	if (trimmed == NULL)
 		return (NULL);
 	ft_strlcpy(trimmed, s1 + sidx, s1len - sidx + 1);

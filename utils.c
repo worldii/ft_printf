@@ -3,74 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jonghapa <bbc2788@naver.com>               +#+  +:+       +#+        */
+/*   By: jonghapark <jonghapark@student.42seoul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:18:28 by jonghapa          #+#    #+#             */
-/*   Updated: 2022/03/05 17:17:52 by jonghapa         ###   ########.fr       */
+/*   Updated: 2022/03/20 00:08:14 by jonghapark       ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 
-#include<unistd.h>
-
-int	getlength(char *base)
-{
-	int	idx;
-
-	idx = 0;
-	while (base[idx] != '\0')
-	{
-		idx++;
-	}
-	return (idx);
-}
-
-int	basecheck(char *base)
-{
-	int	idx;
-	int	ascii[257];
-
-	idx = 0;
-	while (idx < 256)
-	{
-		ascii[idx++] = 0;
-	}
-	idx = 0;
-	while (base[idx] != '\0')
-	{
-		ascii[(int) base[idx]]++;
-		if (base[idx] == '+' || base[idx] == '-')
-			return (0);
-		idx++;
-	}
-	if (idx <= 1)
-		return (0);
-	idx = 0;
-	while (idx < 256)
-	{
-		if (ascii[idx++] > 1)
-			return (0);
-	}
-	return (1);
-}
-
-void	calculate(int nbr, char *base, int baselen)
+void calculate(long long nbr, char *base, int baselen)
 {
 	if (nbr == 0)
-		return ;
+		return;
 	calculate(nbr / baselen, base, baselen);
 	write(1, &base[nbr % baselen], 1);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+void ft_putnbr_base(long long nbr, char *base)
 {
-	int			baselen;
-	long long	tmp;
+	int baselen;
+	long long tmp;
 
 	tmp = nbr;
-	if (basecheck(base) == 0)
-		return ;
-	baselen = getlength(base);
+	baselen = ft_strlen(base);
 	if (tmp >= 0)
 	{
 		calculate(tmp / baselen, base, baselen);
@@ -81,5 +37,26 @@ void	ft_putnbr_base(int nbr, char *base)
 		write(1, "-", 1);
 		calculate(-tmp / baselen, base, baselen);
 		write(1, &base[-tmp % baselen], 1);
-	}	
+	}
+}
+
+int ft_base_strlen(int baselen, unsigned long long num, int t)
+{
+	int ans;
+
+	ans = 0;
+	if (num == 0)
+		return (1);
+	if (t != 0)
+	{
+		num = (long long)num;
+		if (num < 0)
+			ans++;
+	}
+	while (num)
+	{
+		num /= baselen;
+		ans++;
+	}
+	return (ans);
 }
