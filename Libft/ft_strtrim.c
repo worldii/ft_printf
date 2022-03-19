@@ -6,7 +6,7 @@
 /*   By: jonghapark <jonghapark@student.42seoul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 00:20:59 by jonghapa          #+#    #+#             */
-/*   Updated: 2022/03/20 00:17:50 by jonghapark       ###   ########seoul.kr  */
+/*   Updated: 2022/03/20 00:30:28 by jonghapark       ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ char *ft_strtrim(char const *s1, char const *set)
 {
 	int s1len;
 	char *trimmed;
-	int tidx;
 	int sidx;
 
-	tidx = 0;
 	sidx = 0;
 	if (set == NULL)
 		return (ft_strdup(s1));
