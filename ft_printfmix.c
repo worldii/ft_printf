@@ -6,7 +6,7 @@
 /*   By: jonghapark <jonghapark@student.42seoul.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 16:38:23 by jonghapa          #+#    #+#             */
-/*   Updated: 2022/03/20 00:06:22 by jonghapark       ###   ########seoul.kr  */
+/*   Updated: 2022/03/20 01:26:45 by jonghapark       ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int ft_printfhex(unsigned int nbr, const char type)
 {
 	int len;
-	char *str;
+
 	if (type == 'u')
 	{
 		ft_putnbr_base(nbr, "0123456789");
@@ -69,7 +69,6 @@ int ft_printfptr(unsigned long long ptr)
 
 int ft_printfstr(char *str)
 {
-	int i;
 	if (str == 0)
 	{
 		ft_putstr_fd("(null)", 1);

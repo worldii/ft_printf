@@ -6,12 +6,13 @@
 #    By: jonghapark <jonghapark@student.42seoul.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/19 19:18:22 by jonghapark        #+#    #+#              #
-#    Updated: 2022/03/20 00:32:52 by jonghapark       ###   ########seoul.kr   #
+#    Updated: 2022/03/20 01:26:15 by jonghapark       ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
 
 CC = gcc
+CFLAGS = -Wall -Werror -Wextra -c
 
 NAME =libftprintf.a
 LIBFT_DIR= Libft/
