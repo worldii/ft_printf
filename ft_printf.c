@@ -12,16 +12,16 @@
 
 #include "ft_printf.h"
 
-int ft_printfchar(int c)
+int	ft_printfchar(int c)
 {
 	ft_putchar_fd(c, 1);
 	return (1);
 }
 
-int check_type(const char c, va_list *ap)
+int	check_type(const char c, va_list *ap)
 {
 	if (c == 'c')
-		return ft_printfchar(va_arg(*ap, int));
+		return (ft_printfchar(va_arg(*ap, int)));
 	else if (c == 's')
 		return (ft_printfstr(va_arg(*ap, char *)));
 	else if (c == 'd' || c == 'i')
@@ -35,11 +35,11 @@ int check_type(const char c, va_list *ap)
 	return (0);
 }
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-	int len;
-	va_list ap;
-	int i;
+	int			len;
+	va_list		ap;
+	int			i;
 
 	va_start(ap, format);
 	len = 0;

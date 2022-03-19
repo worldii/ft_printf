@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-static int ft_ischarset(char s, char const *set)
+static int	ft_ischarset(char s, char const *set)
 {
-	int sidx;
+	int	sidx;
 
 	sidx = 0;
 	while (set[sidx])
@@ -23,11 +23,11 @@ static int ft_ischarset(char s, char const *set)
 	return (0);
 }
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int s1len;
-	char *trimmed;
-	int sidx;
+	int		s1len;
+	char	*trimmed;
+	int		sidx;
 
 	sidx = 0;
 	if (set == NULL)

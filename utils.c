@@ -12,18 +12,18 @@
 
 #include "ft_printf.h"
 
-void calculate(long long nbr, char *base, int baselen)
+void	calculate(long long nbr, char *base, int baselen)
 {
 	if (nbr == 0)
-		return;
+		return ;
 	calculate(nbr / baselen, base, baselen);
 	write(1, &base[nbr % baselen], 1);
 }
 
-void ft_putnbr_base(long long nbr, char *base)
+void	ft_putnbr_base(long long nbr, char *base)
 {
-	int baselen;
-	long long tmp;
+	int			baselen;
+	long long	tmp;
 
 	tmp = nbr;
 	baselen = ft_strlen(base);
@@ -40,9 +40,9 @@ void ft_putnbr_base(long long nbr, char *base)
 	}
 }
 
-int ft_base_strlen(int baselen, unsigned long long num, int t)
+int	ft_base_strlen(int baselen, unsigned long long num, int t)
 {
-	int ans;
+	int	ans;
 
 	ans = 0;
 	if (num == 0)

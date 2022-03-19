@@ -12,9 +12,9 @@
 
 #include "ft_printf.h"
 
-int ft_printfhex(unsigned int nbr, const char type)
+int	ft_printfhex(unsigned int nbr, const char type)
 {
-	int len;
+	int	len;
 
 	if (type == 'u')
 	{
@@ -29,10 +29,10 @@ int ft_printfhex(unsigned int nbr, const char type)
 	return (len);
 }
 
-int ft_printfnbr(int nbr)
+int	ft_printfnbr(int nbr)
 {
-	int len;
-	char *str;
+	int		len;
+	char	*str;
 
 	str = ft_itoa(nbr);
 	len = ft_strlen(str);
@@ -41,7 +41,7 @@ int ft_printfnbr(int nbr)
 	return (len);
 }
 
-void ft_putptr(unsigned long long ptr)
+void	ft_putptr(unsigned long long ptr)
 {
 	if (ptr >= 16)
 	{
@@ -57,17 +57,18 @@ void ft_putptr(unsigned long long ptr)
 	}
 }
 
-int ft_printfptr(unsigned long long ptr)
+int	ft_printfptr(unsigned long long ptr)
 {
-	int len = 2;
+	int	len;
 
+	len = 2;
 	ft_putstr_fd("0x", 1);
 	len += ft_base_strlen(16, ptr, 0);
 	ft_putptr(ptr);
 	return (len);
 }
 
-int ft_printfstr(char *str)
+int	ft_printfstr(char *str)
 {
 	if (str == 0)
 	{
